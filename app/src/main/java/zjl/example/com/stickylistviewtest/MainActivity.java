@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
                 //2
 //                Toast.makeText(MainActivity.this, "Long click on item" + position, Toast.LENGTH_SHORT).show();
                 //3
-                ToastUtil2.showText(MainActivity.this,"Click on item" + position);
+//                ToastUtil2.showText(MainActivity.this,"Click on item" + position);
                 //4
                 toast.setText(String.valueOf(position));
                 toast.show();
