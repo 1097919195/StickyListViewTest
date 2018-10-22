@@ -17,10 +17,12 @@ public class MainActivity extends AppCompatActivity {
 
     List<String> listStr=new ArrayList<>();
     StickyListHeadersAdapter stickyListHeadersAdapter;
+    Toast toast = null;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        toast = Toast.makeText(this, "", Toast.LENGTH_SHORT);//要在activity创建完之后才能获取到该activity的Content
 
         List<String> list = new ArrayList<>();
         list.add("111");
@@ -36,12 +38,28 @@ public class MainActivity extends AppCompatActivity {
         adapter.setOnMyItemClickListener(new MyAdapter.OnMyItemClickListener() {
             @Override
             public void onMyItemClick(int position, Object object) {
-                Toast.makeText(MainActivity.this, "Click on item" + position, Toast.LENGTH_SHORT).show();
+                //1
+//                ToastUtil.newToast(MainActivity.this, String.valueOf(position));//该方式不太好，但也能实现效果
+                //2
+//                Toast.makeText(MainActivity.this, "Click on item" + position, Toast.LENGTH_SHORT).show();
+                //3
+//                ToastUtil2.showText(MainActivity.this,"Click on item" + position);
+                //4
+                toast.setText(String.valueOf(position));
+                toast.show();
             }
 
             @Override
             public void onMyItemLongClick(int position, Object object) {
-                Toast.makeText(MainActivity.this, "Long click on item" + position, Toast.LENGTH_SHORT).show();
+                //1
+//                ToastUtil.newToast(MainActivity.this, String.valueOf(position));//该方式不太好，但也能实现效果
+                //2
+//                Toast.makeText(MainActivity.this, "Long click on item" + position, Toast.LENGTH_SHORT).show();
+                //3
+                ToastUtil2.showText(MainActivity.this,"Click on item" + position);
+                //4
+                toast.setText(String.valueOf(position));
+                toast.show();
             }
         });
 
